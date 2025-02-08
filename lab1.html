@@ -1,90 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lab 1: Introduction to the Lab</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #f8f8f8;
-    }
-    header {
-      background-color: #4CAF50;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    nav {
-      background-color: #333;
-      overflow: hidden;
-    }
-    nav a {
-      float: left;
-      display: block;
-      color: #f2f2f2;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-    }
-    nav a:hover {
-      background-color: #ddd;
-      color: black;
-    }
-    .container {
-      padding: 20px;
-    }
-    footer {
-      background-color: #333;
-      color: #f2f2f2;
-      text-align: center;
-      padding: 10px;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 1: Introduction to Verilog and Design Flow</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #4CAF50;
+        }
+        header {
+            text-align: center;
+            padding: 10px;
+        }
+        nav {
+            background-color: #f4f4f4;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            gap: 10px;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        nav ul li a:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .section {
+            padding: 15px 0;
+        }
+        .code-block {
+            background: #f4f4f4;
+            padding: 10px;
+            border-left: 3px solid #4CAF50;
+            font-family: monospace;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.8em;
+        }
+        .toc {
+            margin-bottom: 20px;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #4CAF50;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Lab 1: Introduction to the Lab</h1>
-  </header>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="lab1.html">Lab 1</a>
-    <a href="lab2.html">Lab 2</a>
-  </nav>
-  <div class="container">
-    <h2>Overview</h2>
-    <p>This lab introduces the basics of our laboratory environment, including safety protocols and essential equipment usage.</p>
-    
-    <h2>Objectives</h2>
+
+<header>
+    <h1>Lab 1: Introduction to Verilog and Design Flow Tutorial</h1>
+    <p><strong>Spring 2023 | ASIC Design Laboratory</strong></p>
+</header>
+
+<nav>
     <ul>
-      <li>Understand laboratory safety guidelines.</li>
-      <li>Learn basic equipment handling.</li>
-      <li>Follow an introductory experiment procedure.</li>
+        <li><a href="lab1.html">Lab 1</a></li>
+        <li><a href="lab2.html">Lab 2</a></li>
+        <li><a href="lab3.html">Lab 3</a></li>
+        <li><a href="lab4.html">Lab 4</a></li>
+        <!-- Add more links as needed -->
     </ul>
-    
-    <h2>Materials</h2>
+</nav>
+
+<section class="toc">
+    <h2>Table of Contents</h2>
     <ul>
-      <li>Lab coat</li>
-      <li>Safety goggles</li>
-      <li>Experiment kit</li>
+        <li><a href="#introduction">1. Required Background Knowledge and Forward Expectations</a></li>
+        <li><a href="#account-setup">2. Account Setup</a></li>
+        <li><a href="#git-setup">2.3 Git Setup</a></li>
+        <li><a href="#lab-setup">2.4 Lab 1 Specific Setup</a></li>
+        <li><a href="#git-commit">2.5 Initial Git Commit</a></li>
+        <li><a href="#conventions">3. Conventions</a></li>
+        <li><a href="#verilog-compilation">4. Compiling Verilog Code</a></li>
+        <li><a href="#simulation">5. Simulating the Verilog Code</a></li>
+        <li><a href="#synthesis">6. Synthesizing the Comparator</a></li>
+        <li><a href="#postlab">8. Digital Design Refresher (Post-lab)</a></li>
     </ul>
-    
-    <h2>Procedure</h2>
-    <ol>
-      <li>Review the safety guidelines.</li>
-      <li>Wear the provided protective gear.</li>
-      <li>Follow the step-by-step instructions during the lab.</li>
-    </ol>
-    
-    <h2>Conclusion</h2>
-    <p>Summarize your observations and compile your report for submission.</p>
-  </div>
-  <footer>
-    &copy; 2025 Lab Manuals
-  </footer>
+</section>
+
+<section id="introduction" class="section">
+    <h2>1. Required Background Knowledge and Forward Expectations</h2>
+    <p>Throughout this course, it is assumed that you have rudimentary programming skills that are taught in a Freshman or Sophomore level structured/logical coding class. A detailed understanding of digital logic design, both sequential and combinational, is required to complete the laboratory exercises.</p>
+    <p>During the course of this semester, you will conduct 12 laboratory experiments on the workstations in the ASIC Design Laboratory. Make sure to read through the lab before coming to class to have an idea of the goal and necessary steps.</p>
+</section>
+
+<section id="account-setup" class="section">
+    <h2>2. Account Setup</h2>
+    <h3>2.1 Change Password</h3>
+    <p>Log in to a workstation and enter the following command to change your password:</p>
+    <div class="code-block">
+        <code>passwd</code>
+    </div>
+
+    <h3>2.2 Initial Setup</h3>
+    <p>Run the following command to copy the necessary setup files:</p>
+    <div class="code-block">
+        <code>~ece337/setup337</code>
+    </div>
+    <p>Once done, open a new terminal window to apply the changes. Maintain an organized directory structure for your labs by creating separate directories for each lab assignment.</p>
+</section>
+
+<section id="git-setup" class="section">
+    <h3>2.3 Git Setup</h3>
+    <p>The setup script initializes an <code>ece337</code> folder as a Git repository. If you have a remote repository, you can use it as your origin repository for version control. Ensure that these repositories remain private due to the nature of the course content.</p>
+</section>
+
+<section id="lab-setup" class="section">
+    <h3>2.4 Lab 1 Specific Setup</h3>
+    <p>Create the directory for Lab 1 using the following command:</p>
+    <div class="code-block">
+        <code>mkdir -p ~/ece337/Lab1</code>
+    </div>
+    <p>Run the <code>dirset</code> script to create the required subdirectories (Analyzed, Mapped, Reports, Schematic, Scripts, Source, Docs) for the lab.</p>
+</section>
+
+<section id="git-commit" class="section">
+    <h3>2.5 Initial Git Commit</h3>
+    <p>Add and commit the Lab 1 directory to Git using the following commands:</p>
+    <div class="code-block">
+        <code>
+            git add ~/ece337/Lab1<br>
+            git commit -m "Initial setup for Lab 1"
+        </code>
+    </div>
+</section>
+
+<section id="conventions" class="section">
+    <h2>3. Conventions</h2>
+    <h3>3.1 File Names</h3>
+    <p>Design module source files must be named after the module (e.g., <code>counter.sv</code> for a module named <code>counter</code>). Testbench files must prepend <code>tb_</code> to the module name (e.g., <code>tb_counter.sv</code>).</p>
+</section>
+
+<section id="verilog-compilation" class="section">
+    <h2>4. Compiling Verilog Code</h2>
+    <p>Launch QuestaSim&reg; using the following command:</p>
+    <div class="code-block">
+        <code>vsim -i</code>
+    </div>
+    <p>Create a work directory and compile your Verilog source code:</p>
+    <div class="code-block">
+        <code>
+            vlib work<br>
+            vlog source/comparator.sv
+        </code>
+    </div>
+</section>
+
+<section id="simulation" class="section">
+    <h2>5. Simulating the Verilog Code</h2>
+    <h3>5.1 Simulation Setup</h3>
+    <p>Start a new simulation session and select the <code>comparator</code> module from the work library. Add input and output signals to the waveform window.</p>
+    <h3>5.2 Forcing Signals</h3>
+    <p>Use the following commands to force inputs to the comparator:</p>
+    <div class="code-block">
+        <code>
+            force a 16#0000 0 ns, 16#ABCD 25 ns, 16#8808 50 ns -repeat 75 ns<br>
+            force b 16#0000 0 ns, 16#9876 25 ns, 16#AAAA 50 ns -r 75 ns
+        </code>
+    </div>
+</section>
+
+<section id="synthesis" class="section">
+    <h2>6. Synthesizing the Comparator</h2>
+    <p>Synthesize your design using the following command:</p>
+    <div class="code-block">
+        <code>make synthesis</code>
+    </div>
+    <p>Check the log files for errors or warnings before proceeding.</p>
+</section>
+
+<section id="postlab" class="section">
+    <h2>8. Digital Design Refresher (Post-lab)</h2>
+    <p>Complete the following tasks as part of the digital design refresher:</p>
+    <ul>
+        <li>Generate a truth table for the sensor detector circuit.</li>
+        <li>Create K-Maps to determine the optimal logic circuit.</li>
+        <li>Create schematic diagrams for synchronizers, shift registers, and the 1101 detector.</li>
+    </ul>
+</section>
+
+<footer>
+    &copy; 2025 ASIC Design Laboratory | Lab Manual
+</footer>
+
 </body>
 </html>
